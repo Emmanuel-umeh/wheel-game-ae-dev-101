@@ -135,6 +135,7 @@ var prizeText;
 // PLAYGAME STATE
 
 window.onload = async function() {
+  $("#checkOut").hide();
   $(".loader1").show();
   console.log("Getting data from the blockchain")
 
@@ -193,6 +194,23 @@ window.onload = async function() {
 
     $(".loader1").hide();
   });
+
+  $("#checkOut").click(async function(e) {
+    $(".loader1").show();
+    console.log(" CashOut button was Clicked");
+    console.log( `paying out ${totalAmount}`)
+    if(totalAmount > 0){
+      await contractCall("cashOut", totalAmount, totalAmount);
+    }else if (totalAmount < 0){
+      await contractCall('pay', totalAmount.abs())
+    }
+    else{
+      console.log("You have nothing to cash out")
+    }
+  
+
+    $(".loader1").hide();
+  });
   // creation of a 458x488 game
 };
 
@@ -207,6 +225,7 @@ playGame.prototype = {
   },
   // funtion to be executed when the state is created
   create: function() {
+    $("#checkOut").show();
     // giving some color to background
     game.stage.backgroundColor = "#880044";
     // adding the wheel in the middle of the canvas
