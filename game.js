@@ -128,31 +128,7 @@ var prize;
 // text field where to show the prize
 var prizeText;
 
-// window.addEventListener("load", async () => {
 
-//   $("#body").hide();
-//   $("#login").show();
-
-//   client = await Ae.Aepp();
-
-//   GamerLength = await callStatic("getTotalPlayers", []);
-
-//   for (let i = 1; i <= GamerLength; i++) {
-//     const persons = await callStatic("getPlayer", [i]);
-
-//     console.log("calling contract");
-
-//     GamersArray.push({
-//       id: persons.id,
-//       name: persons.name,
-//       owner: persons.owner,
-//       amountWon: persons.amountWon
-//     });
-
-//     //   renderProduct();
-//     //   $("#loading-bar-spinner").hide();
-//   }
-//   console.log("Finished!!");
 
 // PLAYGAME STATE
 
@@ -201,7 +177,7 @@ window.onload = async function() {
     console.log(" Register Button was Clicked");
     const name = $("#user").val();
     console.log(name);
-    await contractCall("addPlayer", [name], 10000);
+    await contractCall("addPlayer", [name], 0);
     console.log("Added User");
     $("#login").hide();
     // $("#body").show();
@@ -285,22 +261,24 @@ playGame.prototype = {
     // now we can spin the wheel again
     canSpin = true;
     // writing the prize you just won
-    prizeText.text = slicePrizes[prize];
-    console.log(prize);
 
-if(prizeText.text ==  "BAD LUCK!!!" ){
+    console.log(slicePrizes[prize])
+    prizeText.text = slicePrizes[prize];
+    // console.log(prize);
+
+if(slicePrizes[prize] ==  "BAD LUCK!!!" ){
   totalAmount - 1
   // totalAmount + prize
-}else if(prizeText.text ==  "1 aettos"){
+}else if(slicePrizes[prize] ==  "1 aettos"){
   totalAmount + 1
 }
-else if(prizeText.text ==  "2 STARS"){
+else if(slicePrizes[prize] ==  "2 STARS"){
   totalAmount + 2
 }
-else if(prizeText.text ==  "3 STARS"){
+else if(slicePrizes[prize] ==  "3 STARS"){
   totalAmount + 3
 }
-else if(prizeText.text == "5 STARS"){
+else if(slicePrizes[prize] == "5 STARS"){
   totalAmount + 5
 }
 else{
