@@ -103,6 +103,9 @@ async function contractCall(func, args, value) {
 
 // the game itself
 var game;
+
+// 
+var totalAmount;
 // the spinning wheel
 var wheel;
 // can the wheel spin?
@@ -285,19 +288,25 @@ playGame.prototype = {
     prizeText.text = slicePrizes[prize];
     console.log(prize);
 
-    if (prize > 0) {
-      $(".loader1").show();
-      console.log("You just won ", prize, " aettos");
-      await contractCall("payPlayer", [prize * 100000], prize * 100000);
-      console.log("Paid Succefully");
-      $(".loader1").hide();
-    } else {
-      $(".loader1").show();
-      await contractCall("pay", [100000], 100000);
-      console.log("debitted looser");
-      console.log("Try again");
-      $(".loader1").hide();
-    }
+if(prize > 0){
+  totalAmount + prize
+}
+    
+totalAmount - 1
+
+    // if (prize > 0) {
+    //   $(".loader1").show();
+    //   console.log("You just won ", prize, " aettos");
+    //   await contractCall("payPlayer", [prize * 100000], prize * 100000);
+    //   console.log("Paid Succefully");
+    //   $(".loader1").hide();
+    // } else {
+    //   $(".loader1").show();
+    //   await contractCall("pay", [100000], 100000);
+    //   console.log("debitted looser");
+    //   console.log("Try again");
+    //   $(".loader1").hide();
+    // }
   }
 };
 
