@@ -38,9 +38,11 @@ payable contract Wheel =
 
     stateful payable entrypoint pay(amount : i) =
         Chain.spend(Contract.address,amount)
-
-    stateful payable entrypoint payPlayer(amount : i) =
+        
+    stateful payable entrypoint cashOut(amount : i) =
         Chain.spend(Call.caller,amount)
+        
+        
         
     payable stateful entrypoint play(index : i, prize : i) =
         let detail = getPlayer(index)
@@ -201,8 +203,10 @@ window.onload = async function() {
     console.log( `paying out ${totalAmount}`)
     if(totalAmount > 0){
       await contractCall("cashOut", totalAmount, totalAmount);
+      location.reload()
     }else if (totalAmount < 0){
       await contractCall('pay', totalAmount.abs())
+      location.reload()
     }
     else{
       console.log("You have nothing to cash out")
