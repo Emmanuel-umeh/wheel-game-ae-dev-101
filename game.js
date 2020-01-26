@@ -288,11 +288,30 @@ playGame.prototype = {
     prizeText.text = slicePrizes[prize];
     console.log(prize);
 
-if(prize > 0){
-  totalAmount + prize
+if(prizeText.text ==  "BAD LUCK!!!" ){
+  totalAmount - 1
+  // totalAmount + prize
+}else if(prizeText.text ==  "1 aettos"){
+  totalAmount + 1
+}
+else if(prizeText.text ==  "2 STARS"){
+  totalAmount + 2
+}
+else if(prizeText.text ==  "3 STARS"){
+  totalAmount + 3
+}
+else if(prizeText.text == "5 STARS"){
+  totalAmount + 5
+}
+else{
+  totalAmount + 1
 }
     
-totalAmount - 1
+
+
+console.log(
+  "Current score : ", totalAmount
+)
 
     // if (prize > 0) {
     //   $(".loader1").show();
