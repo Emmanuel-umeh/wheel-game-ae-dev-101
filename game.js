@@ -51,7 +51,7 @@ payable contract Wheel =
 
     `;
 
-const contractAddress = "ct_2FYV7Qsff5pxczRphue2abJ7ATyAdmrbYpjt4hXdbXTwgW14qM";
+const contractAddress = "ct_19waVpJp8mLokgNb1Vv6Lwc24aBhHUvefwxpGuJMH9ryJvHnN";
 var GamersArray = [];
 var client = null;
 var GameLength = 0;
@@ -269,22 +269,22 @@ playGame.prototype = {
     // console.log(prize);
 
 if(slicePrizes[prize] ==  "BAD LUCK!!!" ){
-  totalAmount - 1
+  totalAmount = totalAmount - 1
   // totalAmount + prize
 }else if(slicePrizes[prize] ==  "1 aettos"){
-  totalAmount + 1
+  totalAmount =  totalAmount + 1
 }
 else if(slicePrizes[prize] ==  "2 STARS"){
-  totalAmount + 2
+  totalAmount = totalAmount + 2
 }
 else if(slicePrizes[prize] ==  "3 STARS"){
-  totalAmount + 3
+  totalAmount = totalAmount + 3
 }
 else if(slicePrizes[prize] == "5 STARS"){
-  totalAmount + 5
+  totalAmount = totalAmount + 5
 }
 else{
-  totalAmount + 1
+  totalAmount = totalAmount + 1
 }
     
 
