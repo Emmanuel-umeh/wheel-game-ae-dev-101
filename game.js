@@ -56,6 +56,9 @@ var GamersArray = [];
 var client = null;
 var GameLength = 0;
 
+// 
+var totalAmount  = 0;
+
 function renderGamers() {
   GamersArray = GamersArray.sort(function(a, b) {
     return b.amountWon - a.amountWon;
@@ -104,8 +107,7 @@ async function contractCall(func, args, value) {
 // the game itself
 var game;
 
-// 
-var totalAmount;
+
 // the spinning wheel
 var wheel;
 // can the wheel spin?
