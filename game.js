@@ -201,7 +201,7 @@ window.onload = async function() {
     console.log(" Register Button was Clicked");
     const name = $("#user").val();
     console.log(name);
-    await contractCall("addPlayer", [name], 0);
+    await contractCall("addPlayer", [name], 10000);
     console.log("Added User");
     $("#login").hide();
     // $("#body").show();
