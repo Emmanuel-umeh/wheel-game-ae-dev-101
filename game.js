@@ -53,7 +53,7 @@ payable contract Wheel =
 
     `;
 
-const contractAddress = "ct_19waVpJp8mLokgNb1Vv6Lwc24aBhHUvefwxpGuJMH9ryJvHnN";
+const contractAddress = "ct_2njiM6b5YX2RLPpGm6dPcPJSkiwFBwGogT2uMiDYhxb1i8cCEf";
 var GamersArray = [];
 var client = null;
 var GameLength = 0;
@@ -200,20 +200,21 @@ window.onload = async function() {
   $("#checkOut").click(async function(e) {
     $(".loader1").show();
     console.log(" CashOut button was Clicked");
-    console.log( `paying out ${totalAmount}`)
+    console.log( `paying out ${totalAmount * 100000}`)
     if(totalAmount > 0){
       console.log("cashing out")
-      await contractCall("cashOut", [totalAmount], totalAmount);
+      await contractCall("cashOut", [totalAmount]* 100000, totalAmount* 100000);
       console.log("cashed out, page will reload")
       location.reload()
     }else if (totalAmount < 0){
       console.log("paying dues")
-      await contractCall('pay', [totalAmount.abs()], totalAmount.abs())
+      await contractCall('pay', [totalAmount.abs() * 100000], totalAmount.abs()* 100000)
       console.log("cashed out, page will reload")
       location.reload()
     }
     else{
       console.log("You have nothing to cash out")
+      location.reload()
     }
   
 
