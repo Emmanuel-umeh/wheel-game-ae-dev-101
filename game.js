@@ -202,10 +202,14 @@ window.onload = async function() {
     console.log(" CashOut button was Clicked");
     console.log( `paying out ${totalAmount}`)
     if(totalAmount > 0){
+      console.log("cashing out")
       await contractCall("cashOut", [totalAmount], totalAmount);
+      console.log("cashed out, page will reload")
       location.reload()
     }else if (totalAmount < 0){
+      console.log("paying dues")
       await contractCall('pay', [totalAmount.abs()], totalAmount.abs())
+      console.log("cashed out, page will reload")
       location.reload()
     }
     else{
