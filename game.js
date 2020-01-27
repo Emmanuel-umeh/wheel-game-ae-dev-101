@@ -197,29 +197,7 @@ window.onload = async function() {
     $(".loader1").hide();
   });
 
-  $("#checkOut").click(async function(e) {
-    $(".loader1").show();
-    console.log(" CashOut button was Clicked");
-    console.log( `paying out ${totalAmount * 100000}`)
-    if(totalAmount > 0){
-      console.log("cashing out")
-      await contractCall("cashOut", [totalAmount]* 100000, totalAmount* 100000);
-      console.log("cashed out, page will reload")
-      location.reload()
-    }else if (totalAmount < 0){
-      console.log("paying dues")
-      await contractCall('pay', [totalAmount.abs() * 100000], totalAmount.abs()* 100000)
-      console.log("cashed out, page will reload")
-      location.reload()
-    }
-    else{
-      console.log("You have nothing to cash out")
-      location.reload()
-    }
   
-
-    $(".loader1").hide();
-  });
   // creation of a 458x488 game
 };
 
@@ -342,3 +320,27 @@ console.log(
 //   await
 
 // }
+
+$("#checkOut").click(async function(e) {
+  $(".loader1").show();
+  console.log(" CashOut button was Clicked");
+  console.log( `paying out ${totalAmount * 100000}`)
+  if(totalAmount > 0){
+    console.log("cashing out")
+    await contractCall("cashOut", [totalAmount * 100000], totalAmount* 100000);
+    console.log("cashed out, page will reload")
+    location.reload()
+  }else if (totalAmount < 0){
+    console.log("paying dues")
+    await contractCall('pay', [totalAmount.abs() * 100000], totalAmount.abs()* 100000)
+    console.log("cashed out, page will reload")
+    location.reload()
+  }
+  else{
+    console.log("You have nothing to cash out")
+    location.reload()
+  }
+
+
+  $(".loader1").hide();
+});
