@@ -53,7 +53,7 @@ payable contract Wheel =
 
     `;
 
-const contractAddress = "ct_2njiM6b5YX2RLPpGm6dPcPJSkiwFBwGogT2uMiDYhxb1i8cCEf";
+const contractAddress = "ct_12wQRo5X3HQhVjyC1SbgHzqmNf46jUe5LyuocLSq8juUgrFWe";
 var GamersArray = [];
 var client = null;
 var GameLength = 0;
