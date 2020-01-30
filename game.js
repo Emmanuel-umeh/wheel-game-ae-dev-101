@@ -327,12 +327,12 @@ $("#checkOut").click(async function(e) {
   console.log( `paying out ${totalAmount * 100000}`)
   if(totalAmount > 0){
     console.log("cashing out")
-    await contractCall("cashOut", [totalAmount * 100000], 0);
+    await callStatic("cashOut", [parseInt(totalAmount,10) * 100000]);
     console.log("cashed out, page will reload")
     location.reload()
   }else if (totalAmount < 0){
     console.log("paying dues")
-    await contractCall('pay', [totalAmount.abs() * 100000], 0)
+    await contractCall('pay', [Math.abs(totalAmount) * 100000], 0)
     console.log("cashed out, page will reload")
     location.reload()
   }
